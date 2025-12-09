@@ -1,0 +1,60 @@
+# === DOCUMENTACIÓN DE DESARROLLO (Local Only) ===
+ARCHITECTURE.md
+BACKEND_COMPLETE.md
+BACKEND_SETUP.md
+BACKEND_SUMMARY.md
+IMPLEMENTATION_CHECKLIST.md
+INDICE_DOCUMENTACION.md
+PROYECTO_COMPLETADO.md
+QUICK_START_ES.md
+RESUMEN_FINAL.md
+README_BACKEND.md
+START_HERE.txt
+backend/SECURITY.md
+
+# === ENTORNO Y DEPENDENCIAS ===
+.env
+.env.local
+.env.*.local
+node_modules/
+package-lock.json
+yarn.lock
+
+# === SISTEMA OPERATIVO ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# === IDE Y EDITORES ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# === LOGS Y TEMPORALES ===
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# === BUILDS Y DIST ===
+dist/
+build/
+.vite/
+
+# === TESTING ===
+coverage/
+.nyc_output/
+
+# === MISC ===
+.cache/
+.parcel-cache/

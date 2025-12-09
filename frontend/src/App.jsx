@@ -54,22 +54,38 @@ const App = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
-  // Mock Form Submit
-  const handleSubmit = (e) => {
+  // Form Submit - Enviar a Backend
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('loading');
     
-    // Simulate API call to Render/MongoDB
-    setTimeout(() => {
-      if(formData.email && formData.message && formData.subject) {
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
         setFormStatus('success');
         setFormData({ subject: '', email: '', message: '' });
-        // Reset status after 3 seconds
         setTimeout(() => setFormStatus('idle'), 3000);
       } else {
         setFormStatus('error');
+        console.error('Error del servidor:', data.error);
       }
-    }, 1500);
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      setFormStatus('error');
+    }
   };
 
   const navLinks = [
