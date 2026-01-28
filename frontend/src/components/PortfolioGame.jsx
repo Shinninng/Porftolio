@@ -9,6 +9,14 @@ const PortfolioGame = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolling, setIsScrolling] = useState(false);
 
+  // Form state
+  const [formData, setFormData] = useState({
+    subject: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
+
   // Skills del portfolio
   const skills = [
     { name: 'Originalidad', percentage: 90 },
@@ -64,6 +72,41 @@ const PortfolioGame = () => {
         behavior: 'smooth',
         block: 'start'
       });
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('loading');
+
+    try {
+      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${BACKEND_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus('success');
+        setFormData({ subject: '', email: '', message: '' });
+        setTimeout(() => setFormStatus('idle'), 3000);
+      } else {
+        setFormStatus('error');
+        console.error('Error del servidor:', data.error);
+      }
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      setFormStatus('error');
     }
   };
 
@@ -264,43 +307,102 @@ const PortfolioGame = () => {
       <section
         data-section="contact"
         id="contacto"
-        className="min-h-screen bg-custom-gray px-10 flex flex-col items-center justify-center"
+        className="min-h-screen bg-custom-gray px-10 flex flex-col items-center justify-center py-20"
       >
-        <div className="max-w-6xl w-full flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2">
-            <h2 className="text-6xl font-black text-dark-blue mb-10 leading-none">
-              LET'S WORK<br />
-              TOGETHER!
-            </h2>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <span className="bg-white px-8 py-2 rounded-full font-bold shadow-sm w-32 text-center">
-                  PHONE
-                </span>
+        <div className="max-w-4xl w-full">
+          <h2 className="text-6xl font-black text-dark-blue mb-12 text-center">
+            LET'S WORK TOGETHER!
+          </h2>
+
+          {/* Formulario */}
+          <form onSubmit={handleSubmit} className="bg-white p-10 rounded-lg shadow-lg space-y-6 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Email */}
+              <div>
+                <label className="block font-bold text-dark-blue mb-2">Email</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  placeholder="tu@email.com"
+                  className="w-full p-3 border-2 border-dark-blue rounded focus:outline-none focus:border-red-600"
+                />
+              </div>
+
+              {/* Subject */}
+              <div>
+                <label className="block font-bold text-dark-blue mb-2">Asunto</label>
+                <select
+                  required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  className="w-full p-3 border-2 border-dark-blue rounded focus:outline-none focus:border-red-600"
+                >
+                  <option value="">Selecciona asunto</option>
+                  <option value="freelance">Proyecto Freelance</option>
+                  <option value="job">Oportunidad Laboral</option>
+                  <option value="collab">Colaboración</option>
+                  <option value="other">Otro</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="block font-bold text-dark-blue mb-2">Mensaje</label>
+              <textarea
+                required
+                rows="5"
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                placeholder="Tu mensaje aquí..."
+                className="w-full p-3 border-2 border-dark-blue rounded focus:outline-none focus:border-red-600"
+              ></textarea>
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                disabled={formStatus === 'loading' || formStatus === 'success'}
+                className={`px-8 py-3 font-bold rounded uppercase transition ${
+                  formStatus === 'success'
+                    ? 'bg-green-600 text-white'
+                    : 'bg-red-600 text-white hover:bg-red-700'
+                } disabled:opacity-70`}
+              >
+                {formStatus === 'loading' ? 'Enviando...' : formStatus === 'success' ? '✓ Enviado' : 'Enviar Mensaje'}
+              </button>
+
+              {formStatus === 'error' && (
+                <span className="text-red-600 font-bold">Error al enviar. Intenta nuevamente.</span>
+              )}
+              {formStatus === 'success' && (
+                <span className="text-green-600 font-bold">¡Mensaje enviado correctamente!</span>
+              )}
+            </div>
+          </form>
+
+          {/* Contact Info */}
+          <div className="text-center">
+            <h3 className="text-2xl font-black text-dark-blue mb-6">O contacta directamente:</h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center gap-4">
+                <span className="bg-white px-8 py-2 rounded-full font-bold shadow-sm">PHONE</span>
                 <span className="font-bold text-dark-blue">XXXXXXXXXXXX</span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="bg-white px-8 py-2 rounded-full font-bold shadow-sm w-32 text-center">
-                  EMAIL
-                </span>
+              <div className="flex items-center justify-center gap-4">
+                <span className="bg-white px-8 py-2 rounded-full font-bold shadow-sm">EMAIL</span>
                 <span className="font-bold text-dark-blue">XXX@XXXXXXX.COM</span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="bg-white px-8 py-2 rounded-full font-bold shadow-sm w-32 text-center">
-                  SOCIAL
-                </span>
+              <div className="flex items-center justify-center gap-4">
+                <span className="bg-white px-8 py-2 rounded-full font-bold shadow-sm">SOCIAL</span>
                 <div className="flex gap-3 text-2xl">
                   <span>🌐</span> <span>🐦</span> <span>📸</span>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="md:w-1/2 flex justify-center mt-12 md:mt-0">
-            <img
-              src="https://img.freepik.com/free-psd/3d-render-hand-pointing-something_23-2149114481.jpg"
-              alt="Contact 3D"
-              className="w-80 animate-bounce"
-            />
           </div>
         </div>
       </section>
