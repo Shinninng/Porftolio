@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos para Scroll Snapping - Integración del archivo styles.css original */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+footer {
+  scroll-snap-align: start;
+}
+
+/* Animación suave para transiciones */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Mejora visual del scroll */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e2e5f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d10000;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a00000;
+}
+
 /* Custom animations */
 @layer utilities {
   @keyframes gradient-xy {

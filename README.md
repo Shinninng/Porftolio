@@ -1,10 +1,16 @@
-# Portfolio de RekCutPleh
+# 🎯 Portfolio RekCutPleh
 
-Este es el repositorio del código fuente de mi portafolio personal, una single-page application (SPA) diseñada para mostrar mis proyectos, habilidades y permitir el contacto de una manera moderna y fluida.
+Portafolio profesional de RekCutPleh con contacto integrado, desplegado en **Netlify + MongoDB + GitHub**.
 
-## Descripción
+## 🚀 Deploy en Vivo
 
-El sitio está construido desde cero utilizando tecnologías web modernas, con un fuerte enfoque en las animaciones, la experiencia de usuario y un diseño limpio. Cuenta con transiciones suaves entre secciones, un sistema de temas claro/oscuro y un formulario de contacto completo con validación y persistencia en base de datos.
+- **Frontend:** https://tunombre.netlify.app
+- **Backend:** https://portfolio-backend.herokuapp.com
+- **Repositorio:** https://github.com/Shinninng/Porftolio
+
+## 📋 Descripción
+
+Single-Page Application (SPA) moderna construida con **React + Vite + Tailwind**, con backend **Node.js/Express** y base de datos **MongoDB** para guardar mensajes de contacto.
 
 ## Características Principales
 
