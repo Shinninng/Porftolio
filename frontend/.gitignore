@@ -1,16 +1,29 @@
-# RekCutPleh Portfolio
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-Portfolio web moderno con React y Vite.
+node_modules
+dist
+dist-ssr
+*.local
 
-## Desarrollo
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-```bash
-npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run build
-```
+# Environment variables
+.env
+.env.local
+.env.*.local
