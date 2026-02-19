@@ -84,13 +84,21 @@
 
         <!-- Sección Inicio -->
         <section id="inicio" class="snap-section relative bg-custom-gray dark:bg-dark-bg overflow-hidden">
-            <!-- Spline Viewer como fondo -->
+            <!-- Video de fondo en loop -->
+            <!-- reemplaza "path/to/video.mp4" con la ruta real de tu archivo de video -->
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+                <source src="path/to/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Si deseas conservar el spline como opción, puedes descomentarlo más abajo -->
+            <!--
             <spline-viewer
                 url="https://prod.spline.design/8Nuda3GHUBVIsoVe/scene.splinecode"
                 class="absolute inset-0 w-full h-full"
                 style="opacity:0.6;"
                 events="false"
             ></spline-viewer>
+            -->
 
             <!-- Contenido encima del fondo -->
             <div class="relative z-10 text-center">
@@ -203,7 +211,7 @@
                         </div>
                     </div>
 
-                    <form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
+                    <!--<form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
                         <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition">
                         <input type="email" name="email" placeholder="Tu email" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition">
                         <textarea name="mensaje" rows="3" placeholder="Tu mensaje" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition resize-none"></textarea>
@@ -212,7 +220,7 @@
                             <div id="loader" class="hidden spinner"></div>
                         </button>
                         <p id="form-message" class="text-center text-sm font-bold hidden"></p>
-                    </form>
+                    </form> -->
                 </div>
 
                 <!-- Right side - 3D Character/Illustration -->
