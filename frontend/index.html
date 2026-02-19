@@ -286,16 +286,25 @@
 
             </div>  
 
-                    <!--<form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
-                        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition">
-                        <input type="email" name="email" placeholder="Tu email" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition">
-                        <textarea name="mensaje" rows="3" placeholder="Tu mensaje" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition resize-none"></textarea>
-                        <button type="submit" id="submit-btn" class="w-full bg-dark-blue text-white font-black py-3 rounded hover:bg-black transition-colors flex items-center justify-center gap-3 disabled:opacity-50">
-                            <span id="btn-text">ENVIAR</span>
-                            <div id="loader" class="hidden spinner"></div>
-                        </button>
-                        <p id="form-message" class="text-center text-sm font-bold hidden"></p>
-                    </form> -->
+                    <form name="contact" method="POST" netlify>
+                        <div class="space-y-4">
+                            <p>
+                                <label class="block text-sm font-bold mb-2">Nombre</label>
+                                <input type="text" name="nombre" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition" />
+                            </p>
+                            <p>
+                                <label class="block text-sm font-bold mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition" />
+                            </p>
+                            <p>
+                                <label class="block text-sm font-bold mb-2">Mensaje</label>
+                                <textarea name="mensaje" rows="4" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition resize-none"></textarea>
+                            </p>
+                            <p>
+                                <button type="submit" class="w-full bg-dark-blue text-white font-black py-3 rounded hover:bg-black transition-colors">ENVIAR</button>
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
