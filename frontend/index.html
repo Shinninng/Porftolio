@@ -30,8 +30,19 @@
 
     <style>
         * { font-family: 'Montserrat', sans-serif; }
-        .snap-container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
-        .snap-section { height: 100vh; scroll-snap-align: start; display:flex; align-items:center; justify-content:center; }
+        /* use small viewport units to account for mobile browser chrome */
+        .snap-container { height: 100%; overflow-y: scroll; }
+        /* restrict snapshot behaviour to larger screens, mobile users get normal scroll
+           this prevents the next section header from peeking through during a swipe */
+        @media (min-width: 768px) {
+            .snap-container { scroll-snap-type: y mandatory; }
+            .snap-section { min-height: 100svh; /* small viewport height for dynamic UI */
+                           scroll-snap-align: start;
+                           scroll-snap-stop: always; /* make snap stick */
+                           display:flex;
+                           align-items:center;
+                           justify-content:center; }
+        }
         .skill-bar { height:16px; border:2px solid; background:white; overflow:hidden; border-radius:4px; }
         .skill-progress { background-color:#d10000; height:100%; width:0%; transition: width 1.5s ease-in-out; }
         .faq-content { max-height:0; overflow:hidden; transition: max-height 0.4s ease-out; }
@@ -169,7 +180,7 @@
 
         <!-- Sección Proyectos -->
         <section id="proyectos" class="snap-section flex flex-col items-center justify-center px-6 py-20 bg-custom-gray dark:bg-dark-bg">
-            <h2 class="text-5xl md:text-6xl font-black mb-16 uppercase tracking-widest">Galería Proyectos</h2>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-16 uppercase tracking-widest">Galería Proyectos</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
                 <div class="bg-white dark:bg-dark-card p-6 shadow-xl border-b-4 border-red-600 hover:shadow-2xl transition-shadow group">
                     <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 mb-6 overflow-hidden relative rounded"><img src="https://via.placeholder.com/400x250" alt="Proyecto Alpha" class="w-full h-full object-cover"></div>
@@ -214,32 +225,32 @@
                     <h2 class="text-5xl md:text-6xl font-black uppercase leading-tight mb-8">¡Trabajemos<br>Juntos!</h2>
                     
                     <div class="space-y-6 mb-12">
-                        <div class="flex items-center gap-6">
-                            <div class="bg-dark-blue text-white rounded-full w-24 h-24 flex items-center justify-center font-bold text-lg">PHONE</div>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">PHONE</div>
                             <div>
                                 <p class="text-sm opacity-70 uppercase">Teléfono</p>
                                 <p class="text-lg font-bold">2664377391</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center gap-6">
-                            <div class="bg-dark-blue text-white rounded-full w-24 h-24 flex items-center justify-center font-bold text-lg">EMAIL</div>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">EMAIL</div>
                             <div>
                                 <p class="text-sm opacity-70 uppercase">Email</p>
                                 <p class="text-lg font-bold"><a href="mailto:silvestritizianodaniel@gmail.com" class="underline">silvestritizianodaniel@gmail.com</a></p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center gap-6">
-                            <div class="bg-dark-blue text-white rounded-full w-24 h-24 flex items-center justify-center font-bold text-lg">LOCATION</div>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">LOCATION</div>
                             <div>
                                 <p class="text-sm opacity-70 uppercase">Ubicación</p>
                                 <p class="text-lg font-bold">San Luis, Argentina</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center gap-6">
-                            <div class="bg-dark-blue text-white rounded-full w-24 h-24 flex items-center justify-center font-bold text-lg">SOCIAL</div>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">SOCIAL</div>
                             <div class="flex gap-4 text-3xl">
                                 <a href="https://www.linkedin.com/in/tiziano-d-silvestri/" target="_blank" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
                                 <a href="https://github.com/Shinninng" target="_blank" class="hover:text-gray-600 dark:hover:text-gray-300 transition"><i class="fab fa-github"></i></a>
