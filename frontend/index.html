@@ -31,17 +31,17 @@
     <style>
         * { font-family: 'Montserrat', sans-serif; }
         /* use small viewport units to account for mobile browser chrome */
-        .snap-container { height: 100%; overflow-y: scroll; }
-        /* restrict snapshot behaviour to larger screens, mobile users get normal scroll
-           this prevents the next section header from peeking through during a swipe */
-        @media (min-width: 768px) {
-            .snap-container { scroll-snap-type: y mandatory; }
-            .snap-section { min-height: 100svh; /* small viewport height for dynamic UI */
-                           scroll-snap-align: start;
-                           scroll-snap-stop: always; /* make snap stick */
-                           display:flex;
-                           align-items:center;
-                           justify-content:center; }
+        .snap-container { height: 100%; overflow-y: scroll; scroll-snap-type: y mandatory; }
+        /* every section should occupy full viewport even on phones; svh
+           handles mobile address-bar resizing. we add a JS fallback below. */
+        .snap-section {
+            min-height: 100svh;
+            /* fallback if svh unsupported will be set via JS */
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display:flex;
+            align-items:center;
+            justify-content:center;
         }
         .skill-bar { height:16px; border:2px solid; background:white; overflow:hidden; border-radius:4px; }
         .skill-progress { background-color:#d10000; height:100%; width:0%; transition: width 1.5s ease-in-out; }
@@ -213,6 +213,26 @@
                         <div class="flex justify-between items-center font-bold text-lg"><span>¿Buscas colaboración en proyectos indie?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
                         <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Sí, estoy abierto a colaborar con equipos apasionados por la narrativa interactiva.</div>
                     </div>
+                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center font-bold text-lg"><span>¿Qué herramientas y motores utilizas?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
+                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Mi flujo de trabajo principal es en Unity, pero cuento con experiencia sólida integrando sistemas en Unreal Engine. Además de los motores, utilizo herramientas de documentación y diagramación para asegurar que tanto las mecánicas como la narrativa estén perfectamente coordinadas desde la pre-producción.</div>
+                    </div>
+                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center font-bold text-lg"><span>¿Haces solo diseño narrativo o también Game Design general?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
+                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Me desempeño principalmente como Game Designer, donde disfruto creando sistemas y mecánicas sólidas. Sin embargo, he desarrollado una gran pasión por el Diseño Narrativo, lo que me permite construir mundos donde la historia y la jugabilidad se retroalimentan constantemente. Disfruto trabajar en la intersección de ambas disciplinas.</div>
+                    </div>
+                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center font-bold text-lg"><span>¿Escribes y diseñas en inglés y en español?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
+                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">¡Sí! Trabajo cómodamente en ambos idiomas. Aunque mi lengua nativa es el español, mi proceso creativo suele ser híbrido; utilizo el inglés de manera fluida para documentación técnica, toma de notas y referencias, adaptándome sin problemas a los estándares de la industria internacional.</div>
+                    </div>
+                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center font-bold text-lg"><span>¿En qué géneros de videojuegos te especializas o prefieres trabajar?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
+                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Tengo una fuerte inclinación hacia los RPGs y los juegos de acción, especialmente aquellos con componentes competitivos. También disfruto mucho el reto lógico de los puzzles y la rejugabilidad de los sistemas de generación procedural. Mi meta es especializarme en crear experiencias inmersivas dentro del género RPG y acción de alto ritmo.</div>
+                    </div>
+                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center font-bold text-lg"><span>¿Estás disponible para trabajo remoto, freelance o full-time?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
+                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">¡Absolutamente! Estoy abierto a nuevas oportunidades y me adapto con facilidad a diferentes modalidades de trabajo, ya sea colaborando en proyectos específicos como Freelance o integrándome a un equipo de forma Full-time, siempre bajo un esquema 100% remoto.</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,7 +240,6 @@
         <!-- Sección Contacto -->
         <section id="contacto" class="snap-section flex items-center justify-center px-6 py-20 bg-custom-gray dark:bg-dark-bg">
             <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Left side - Contact Info -->
                 <div>
                     <h2 class="text-5xl md:text-6xl font-black uppercase leading-tight mb-8">¡Trabajemos<br>Juntos!</h2>
                     
@@ -229,7 +248,9 @@
                             <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">PHONE</div>
                             <div>
                                 <p class="text-sm opacity-70 uppercase">Teléfono</p>
-                                <p class="text-lg font-bold">2664377391</p>
+                                <p class="text-lg font-bold">
+                                    <a href="https://wa.me/5492664377391" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-500 transition">Enviar un WhatsApp</a>
+                                </p>
                             </div>
                         </div>
                         
@@ -237,7 +258,9 @@
                             <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">EMAIL</div>
                             <div>
                                 <p class="text-sm opacity-70 uppercase">Email</p>
-                                <p class="text-lg font-bold"><a href="mailto:silvestritizianodaniel@gmail.com" class="underline">silvestritizianodaniel@gmail.com</a></p>
+                                <p class="text-lg font-bold">
+                                    <a href="mailto:silvestritizianodaniel@gmail.com" class="underline hover:text-blue-500 transition">Escribir un correo</a>
+                                </p>
                             </div>
                         </div>
                         
@@ -252,12 +275,14 @@
                         <div class="flex flex-wrap items-center gap-6">
                             <div class="bg-dark-blue text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center font-bold text-lg">SOCIAL</div>
                             <div class="flex gap-4 text-3xl">
-                                <a href="https://www.linkedin.com/in/tiziano-d-silvestri/" target="_blank" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
-                                <a href="https://github.com/Shinninng" target="_blank" class="hover:text-gray-600 dark:hover:text-gray-300 transition"><i class="fab fa-github"></i></a>
-                                <a href="https://twitter.com" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/tiziano-d-silvestri/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://github.com/Shinninng" target="_blank" rel="noopener noreferrer" class="hover:text-gray-600 dark:hover:text-gray-300 transition"><i class="fab fa-github"></i></a>
+                                <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
+
+            </div>  
 
                     <!--<form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
                         <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-3 bg-white dark:bg-gray-800 border-none rounded focus:ring-2 ring-red-500 outline-none transition">
@@ -370,6 +395,16 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             initDarkMode(); initMobileMenu(); initActiveSection(); animateSkillBars();
+            // fallback for browsers not supporting 100svh
+            if (!('visualViewport' in window)) {
+                const sections = document.querySelectorAll('.snap-section');
+                const h = window.innerHeight + 'px';
+                sections.forEach(s => s.style.minHeight = h);
+                window.addEventListener('resize', () => {
+                    const h2 = window.innerHeight + 'px';
+                    sections.forEach(s => s.style.minHeight = h2);
+                });
+            }
         });
     </script>
 
