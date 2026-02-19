@@ -85,20 +85,11 @@
         <!-- Sección Inicio -->
         <section id="inicio" class="snap-section relative bg-custom-gray dark:bg-dark-bg overflow-hidden">
             <!-- Video de fondo en loop -->
-            <!-- reemplaza "path/to/video.mp4" con la ruta real de tu archivo de video -->
+            <!-- reemplazar "path/to/video.mp4" -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
                 <source src="path/to/video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <!-- Si deseas conservar el spline como opción, puedes descomentarlo más abajo -->
-            <!--
-            <spline-viewer
-                url="https://prod.spline.design/8Nuda3GHUBVIsoVe/scene.splinecode"
-                class="absolute inset-0 w-full h-full"
-                style="opacity:0.6;"
-                events="false"
-            ></spline-viewer>
-            -->
 
             <!-- Contenido encima del fondo -->
             <div class="relative z-10 text-center">
@@ -113,51 +104,63 @@
             <div class="max-w-4xl w-full">
                 <div class="text-center md:text-right">
                     <h2 class="text-5xl md:text-6xl font-black mb-8 italic uppercase">Sobre Mi</h2>
-
-                    <!-- Perfil Profesional -->
-                    <h3 class="text-2xl font-bold mb-4">Perfil Profesional</h3>
-                    <p class="text-lg md:text-xl leading-relaxed opacity-80 mb-4">Nombre completo: <strong>Tiziano Silvestri</strong></p>
-                    <p class="text-lg md:text-xl leading-relaxed opacity-80 mb-4">Correo electrónico: <a href="mailto:silvestritizianodaniel@gmail.com" class="underline">silvestritizianodaniel@gmail.com</a> | Teléfono: <strong>2664377391</strong></p>
-                    <p class="text-lg md:text-xl leading-relaxed opacity-80 mb-8">Ubicación: Maestros Puntanos 2245, Juana Koslay, Argentina</p>
-
-                    <h3 class="text-2xl font-bold mt-6 mb-2">Resumen Profesional</h3>
-                    <p class="text-lg md:text-xl leading-relaxed opacity-80 mb-8">Estudiante de Tecnicaturas en Diseño Digital y Videojuegos. Apasionado por la programación y el desarrollo de videojuegos. Perfil caracterizado por la capacidad de autoaprendizaje, adaptabilidad a nuevas tecnologías y un enfoque proactivo. Objetivo: aplicar y expandir conocimientos en proyectos de desarrollo de software y videojuegos.</p>
-
-                    <h3 class="text-2xl font-bold mt-6 mb-2">Habilidades Técnicas</h3>
-                    <ul class="list-disc list-inside text-left max-w-md mx-auto md:ml-0 mb-8">
-                        <li>Lenguajes: C#, C++, JavaScript, HTML, CSS</li>
-                        <li>Motores y herramientas: Unreal Engine, Adobe Photoshop, Adobe Illustrator</li>
-                        <li>Sistemas operativos: Windows, Linux</li>
-                        <li>Productividad: Microsoft Office, Google Workspace, manejo de redes</li>
-                    </ul>
-
-                    <h3 class="text-2xl font-bold mt-6 mb-2">Educación y Formación</h3>
-                    <ul class="list-disc list-inside text-left max-w-md mx-auto md:ml-0 mb-8">
-                        <li>Tecnicatura en Videojuegos: Universidad Tecnológica Nacional (UTN-BA), Buenos Aires (Julio 2024 - Presente)</li>
-                        <li>Tecnicatura en Diseño Digital y Videojuegos: Universidad de La Punta (ULP), La Punta (Enero 2023 - Presente)</li>
-                        <li>Certificación en Desarrollo de Videojuegos: Universidad Tecnológica Nacional (UTN-BA), Buenos Aires (Enero 2021 - Diciembre 2026)</li>
-                    </ul>
-
-                    <h3 class="text-2xl font-bold mt-6 mb-2">Idiomas</h3>
-                    <p class="text-lg md:text-xl leading-relaxed opacity-80 mb-12">Inglés, Italiano, Alemán.</p>
+                    <p class="text-lg md:text-xl leading-relaxed opacity-80 mb-12">Me especializo en las disciplinas de Game Design, Systems Design y Narrativa Interactiva. Mi enfoque principal reside en la creación de experiencias de juego que posean una identidad distintiva.</p>
 
                     <!-- Skills -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="space-y-2">
-                            <div class="flex justify-between text-sm font-bold mb-2"><span>GAME DESIGN</span><span>95%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="95"></div></div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>GAME DESIGN</span><span>75%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="75"></div></div>
                         </div>
                         <div class="space-y-2">
-                            <div class="flex justify-between text-sm font-bold mb-2"><span>NARRATIVA</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="90"></div></div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>NARRATIVA</span><span>80%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="80"></div></div>
                         </div>
                         <div class="space-y-2">
                             <div class="flex justify-between text-sm font-bold mb-2"><span>PROGRAMACIÓN</span><span>75%</span></div>
                             <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="75"></div></div>
                         </div>
                         <div class="space-y-2">
-                            <div class="flex justify-between text-sm font-bold mb-2"><span>UNREAL ENGINE</span><span>85%</span></div>
-                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="85"></div></div>
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>UNREAL ENGINE</span><span>65%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="65"></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Additional skill bars -->
+                    <h3 class="text-2xl font-black mt-8 mb-4">Otras Habilidades</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>JavaScript / HTML / CSS</span><span>70%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="70"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>C# / C++</span><span>60%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="60"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Adobe Photoshop</span><span>60%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="60"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Adobe Illustrator</span><span>70%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="70"></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Language bars -->
+                    <h3 class="text-2xl font-black mt-8 mb-4">Idiomas</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Inglés</span><span>95%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="95"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Italiano</span><span>60%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="60"></div></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold mb-2"><span>Alemán</span><span>30%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width:0%;" data-width="30"></div></div>
                         </div>
                     </div>
                 </div>
@@ -199,14 +202,6 @@
                         <div class="flex justify-between items-center font-bold text-lg"><span>¿Buscas colaboración en proyectos indie?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
                         <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Sí, estoy abierto a colaborar con equipos apasionados por la narrativa interactiva.</div>
                     </div>
-                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
-                        <div class="flex justify-between items-center font-bold text-lg"><span>¿Cómo puedo contratarte?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
-                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Puedes contactarme por correo o teléfono para discutir los detalles del proyecto; también estoy disponible en LinkedIn y GitHub.</div>
-                    </div>
-                    <div class="faq-item bg-white dark:bg-gray-800 p-6 rounded cursor-pointer border-l-4 border-dark-blue" onclick="toggleFaq(this)">
-                        <div class="flex justify-between items-center font-bold text-lg"><span>¿Aceptas trabajo remoto?</span><i class="fas fa-plus transition-transform duration-300"></i></div>
-                        <div class="faq-content text-sm mt-4 opacity-70 leading-relaxed">Sí, cuento con experiencia trabajando en equipos distribuidos y manejo herramientas de colaboración en línea.</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -239,7 +234,7 @@
                             <div class="bg-dark-blue text-white rounded-full w-24 h-24 flex items-center justify-center font-bold text-lg">LOCATION</div>
                             <div>
                                 <p class="text-sm opacity-70 uppercase">Ubicación</p>
-                                <p class="text-lg font-bold">Maestros Puntanos 2245, Juana Koslay, Argentina</p>
+                                <p class="text-lg font-bold">San Luis, Argentina</p>
                             </div>
                         </div>
                         
