@@ -38,6 +38,7 @@
            handles mobile address-bar resizing. we add a JS fallback below. */
         .snap-section {
             min-height: 100svh;
+            width: 100%;
             /* fallback if svh unsupported will be set via JS */
             scroll-snap-align: start;
             scroll-snap-stop: always;
@@ -53,7 +54,7 @@
         @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-custom-gray dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="bg-custom-gray dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-md border-b dark:border-gray-700">
