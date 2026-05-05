@@ -32,10 +32,13 @@
 
     <style>
         *, *::before, *::after { box-sizing: border-box; }
-        html, body { min-height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+        html, body { min-height: 100%; width: 100%; margin: 0; padding: 0; overflow-x: hidden; }
         * { font-family: 'Montserrat', sans-serif; }
         /* use small viewport units to account for mobile browser chrome */
-        .snap-container { min-height: 100vh; height: 100vh; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; }
+        .snap-container { min-height: 100vh; height: 100vh; width: 100%; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; background: inherit; scrollbar-width: thin; scrollbar-color: rgba(15,23,42,.55) transparent; }
+        .snap-container::-webkit-scrollbar { width: 14px; }
+        .snap-container::-webkit-scrollbar-track { background: transparent; }
+        .snap-container::-webkit-scrollbar-thumb { background: rgba(15,23,42,.55); border-radius: 9999px; }
         /* every section should occupy full viewport even on phones; svh
            handles mobile address-bar resizing. we add a JS fallback below. */
         .snap-section {
