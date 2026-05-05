@@ -31,9 +31,11 @@
     </script>
 
     <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { min-height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
         * { font-family: 'Montserrat', sans-serif; }
         /* use small viewport units to account for mobile browser chrome */
-        .snap-container { height: 100%; overflow-y: scroll; scroll-snap-type: y mandatory; }
+        .snap-container { min-height: 100vh; height: 100vh; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; }
         /* every section should occupy full viewport even on phones; svh
            handles mobile address-bar resizing. we add a JS fallback below. */
         .snap-section {
@@ -356,7 +358,11 @@
 
         function scrollToNext() {
             const container = document.querySelector('.snap-container');
-            container.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            if (container && container.scrollHeight > container.clientHeight) {
+                container.scrollTo({ top: container.scrollTop + container.clientHeight, behavior: 'smooth' });
+            } else {
+                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            }
         }
 
         function toggleFaq(element) {
